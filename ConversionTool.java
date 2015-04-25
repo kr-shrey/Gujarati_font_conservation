@@ -10,6 +10,10 @@ class ConversionTool
     public static void main(String[] args)throws IOException
     {
         i=0;
+        if (args.length==0){
+        	System.out.println("Usage: ConversionTool <inputfile>");
+        	return;
+        }
         str=new String();
         hhash=new HashMap<String,String>();
         nu2a=new HashMap<String,Integer>();
@@ -20,8 +24,8 @@ class ConversionTool
         BufferedReader sc3 = new BufferedReader(new InputStreamReader(hl_map,"UTF-8"));
         FileInputStream ascii_map = new FileInputStream("NonUnicodetoASCII.dat");
         BufferedReader sc2 = new BufferedReader(new InputStreamReader(ascii_map,"ISO8859-1"));
-        FileInputStream fr = new FileInputStream("OldKrishna.txt");
-        FileOutputStream f=new FileOutputStream("output-test.txt");
+        FileInputStream fr = new FileInputStream(args[0]);
+        FileOutputStream f=new FileOutputStream("output.txt");
         OutputStreamWriter few=new OutputStreamWriter(f,"UTF-8");
         BufferedWriter fw=new BufferedWriter(few);
         BufferedReader br = new BufferedReader(new InputStreamReader(fr,"ISO8859-1"));
